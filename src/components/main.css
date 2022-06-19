@@ -1,0 +1,513 @@
+:root {
+    --personal-color: rgb(101, 101, 219);
+    --business-color: rgb(214, 91, 91);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: gray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-app {
+    position: relative;
+    height: 100vh;
+    background-color: rgb(252, 250, 250);
+}
+
+.greet-user {
+    font-size: x-large;
+    padding-left: 5%;
+    width: fit-content;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(90, 74, 90);
+    font-weight: bold;
+}
+
+.user-name {
+    text-transform: capitalize;
+    margin: 0 .5rem 0 0.5rem;
+}
+
+.username-edit {
+    margin-left: 3px;
+}
+
+.categories-title {
+    color: rgb(117, 88, 88);
+    width: fit-content;
+    margin-left: 1rem;
+    font-size: large;
+    font-weight: bold;
+}
+
+.categories-container {
+    display: flex;
+    justify-content: center;
+    column-gap: .5rem;
+    position: relative;
+    width: 100%;
+    padding: .5rem 0;
+    position: sticky;
+    top: -1px;
+    z-index: 12;
+}
+
+.personal,
+.business {
+    width: fit-content;
+    padding: 1rem 1.5rem;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 1 px 1px 5px 3px lightgrey;
+}
+
+.business {
+    background-color: var(--business-color);
+}
+
+.personal {
+    background-color: var(--personal-color);
+}
+
+.category {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.total-tasks {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: small;
+}
+
+.category,
+.total-tasks {
+    padding: .5rem 0 0 1rem;
+}
+
+.filter-main-box {
+    display: flex;
+    align-items: center;
+}
+
+.filter {
+    position: relative;
+    left: 3rem;
+    top: .5rem;
+}
+
+#filter-option {
+    text-align: center;
+    outline: none;
+}
+
+#filter-option~option {
+    padding-top: 1rem;
+}
+
+.today-task-header {
+    margin-top: 1rem;
+    color: rgb(99, 73, 73);
+    width: fit-content;
+    padding-left: 1rem;
+}
+
+.add-button {
+    width: fit-content;
+    position: fixed;
+    bottom: 7%;
+    right: 2rem;
+    padding: 1rem;
+    border-radius: 50%;
+    outline: none;
+    background-color: blue;
+    color: white;
+    border-color: rgb(181, 181, 236);
+    z-index: 5;
+}
+
+.add-button:active {
+    background-color: white;
+}
+
+
+/*input card*/
+
+.input-card {
+    display: block;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    z-index: 200;
+    overflow: hidden;
+}
+
+.close-icon {
+    margin-left: 80%;
+    margin-top: 3rem;
+}
+
+[name=input-task] {
+    border: none;
+    border-bottom: 1px solid grey;
+    padding-left: 2rem;
+    outline: none;
+    height: 2rem;
+    width: 70%;
+    margin-left: 5%;
+    margin-top: 5rem;
+    font-size: x-large;
+}
+
+#input-buttons {
+    margin-top: 3rem;
+    padding-left: 1rem;
+}
+
+.select-category {
+    margin: 1rem 0;
+    font-weight: bold;
+    color: gray;
+}
+
+label {
+    margin-left: 3%;
+}
+
+[value=business],
+[value=personal] {
+    margin-right: 1rem;
+}
+
+.time-container {
+    margin-top: 1.5rem;
+}
+
+.time-header {
+    color: gray;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+input[type=time] {
+    margin-left: 1rem;
+    height: 2rem;
+    padding: .5rem;
+}
+
+[value=submit] {
+    background-color: blue;
+    position: absolute;
+    bottom: 2rem;
+    right: 5%;
+    font-size: large;
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+    border-radius: 20px;
+}
+
+
+/* side nav styling*/
+
+
+/*task card*/
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    align-items: center;
+    background-color: white;
+    position: relative;
+    overflow-y: auto;
+}
+
+.tasks-card-completed {
+    width: 90%;
+    height: 6rem;
+    background-color: white;
+    box-shadow: 1px 1px 8px 0px lightgray;
+    position: relative;
+    margin-bottom: .5rem;
+    border-radius: 6px;
+}
+
+.tasks-card-completed::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: green;
+    border-radius: 12px 0 0 8px;
+}
+
+.task-card {
+    width: 90%;
+    height: 6rem;
+    background-color: white;
+    box-shadow: 1px 1px 8px 0px lightgray;
+    position: relative;
+    margin-bottom: .5rem;
+    border-radius: 6px;
+}
+
+.task-card::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: yellow;
+    border-radius: 12px 0 0 8px;
+}
+
+.label-checkbox {
+    display: block;
+    width: fit-content;
+    position: relative;
+    top: 2rem;
+    padding-left: 40px;
+    padding-top: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#check-task {
+    visibility: hidden;
+}
+
+.custom-checkbox,
+.business-check,
+.personal-check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.business-check {
+    background-color: var(--business-color);
+}
+
+.personal-check {
+    background-color: var(--personal-color);
+}
+
+.label-checkbox:hover input~.custom-checkbox {
+    background-color: rgb(187, 215, 233);
+}
+
+.label-checkbox:hover input~.business-check {
+    background-color: rgb(216, 137, 137);
+}
+
+.label-checkbox:hover input~.personal-check {
+    background-color: rgb(139, 139, 233);
+}
+
+.label-checkbox input:active~.custom-checkbox {
+    background-color: rgb(140, 155, 224);
+}
+
+.label-checkbox input:checked~.custom-checkbox {
+    background-color: rgb(101, 101, 219);
+}
+
+.label-checkbox input:checked~.business-check {
+    background-color: var(--business-color);
+}
+
+.label-checkbox input:checked~.personal-check {
+    background-color: var(--personal-color);
+}
+
+.custom-checkbox::after,
+.personal-check::after,
+.business-check::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.label-checkbox input:checked~.custom-checkbox::after,
+.label-checkbox input:checked~.business-check::after,
+.label-checkbox input:checked~.personal-check::after {
+    display: block;
+}
+
+.label-checkbox .custom-checkbox::after,
+.label-checkbox .personal-check::after,
+.label-checkbox .business-check::after {
+    left: 17px;
+    bottom: 7px;
+    width: 10px;
+    height: 19px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+.task-checked {
+    position: absolute;
+    left: 27px;
+    bottom: 8px;
+    width: 14px;
+    height: 30px;
+    border: solid green;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+.task-name {
+    font-weight: bold;
+    color: gray;
+    width: fit-content;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 auto;
+}
+
+.task-time-container {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: .7rem;
+    margin: 0 auto;
+    font-size: small;
+    column-gap: 5px;
+    width: fit-content;
+    color: rgb(119, 109, 109);
+}
+
+.edit-box {
+    position: absolute;
+    font-size: xx-large;
+    right: 1rem;
+    top: 2rem;
+}
+
+.edit-icons {
+    color: brown;
+}
+
+.no-tasks {
+    margin: 1rem 3rem;
+    font-size: medium;
+    font-weight: bold;
+    color: gray;
+}
+
+
+/*confirm button*/
+
+.confirm-bg {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    opacity: .9;
+    z-index: 80;
+}
+
+.remove-dialog {
+    display: none;
+}
+
+.confirm-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 20%;
+    background-color: rgb(255, 80, 103);
+}
+
+.confirm-text {
+    font-size: larger;
+}
+
+.confirm-button-box {
+    position: relative;
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.confirm-button {
+    all: unset;
+    border-radius: 8px;
+    padding: 4px 8px;
+    text-align: center;
+}
+
+.confirm-button:active {
+    background-color: white;
+}
+
+.confirm-button:hover {
+    color: rgb(238, 201, 133);
+}
+
+@media only screen and (min-width: 992px) {
+    .categories-container {
+        justify-content: center;
+        column-gap: 1rem;
+    }
+    .personal,
+    .business {
+        flex-basis: 30%;
+    }
+    .add-button {
+        right: 3rem;
+    }
+    .tasks-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 1rem;
+    }
+    .task-card,
+    .tasks-card-completed {
+        flex-basis: 30%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .greet-user {
+        font-size: xx-large;
+    }
+    .personal,
+    .business {
+        flex-basis: 40%;
+    }
+}
