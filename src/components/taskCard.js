@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import "./main.css";
 
-import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import {BiTime} from "react-icons/bi"
 import { useDispatch } from "react-redux";
