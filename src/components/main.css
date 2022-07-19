@@ -58,6 +58,7 @@ body {
     position: sticky;
     top: -1px;
     z-index: 12;
+    
 }
 
 .personal,
@@ -137,6 +138,7 @@ body {
 
 .add-button:active {
     background-color: white;
+    
 }
 
 
